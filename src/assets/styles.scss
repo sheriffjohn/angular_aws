@@ -9,8 +9,9 @@ $turquoise: rgb(163, 209, 212);
 $light_turquoise: rgb(191, 223, 225);
 $light_gray: (242, 242, 242);
 @font-face {
-  font-family: 'weathericons'; //src: url('./assets/font/weathericons-regular-webfont.eot');
-  //src: url('./assets/font/weathericons-regular-webfont.eot?#iefix') format('embedded-opentype'), url('../font/weathericons-regular-webfont.woff2') format('woff2'), url('../font/weathericons-regular-webfont.woff') format('woff'), url('../font/weathericons-regular-webfont.ttf') format('truetype'), url('../font/weathericons-regular-webfont.svg#weather_iconsregular') format('svg');
+  font-family: 'weathericons';
+  src: url('/assets/font/weathericons-regular-webfont.eot');
+  src: url('/assets/font/weathericons-regular-webfont.eot?#iefix') format('embedded-opentype'), url('/assets/font/weathericons-regular-webfont.woff2') format('woff2'), url('/assets/font/weathericons-regular-webfont.woff') format('woff'), url('/assets/font/weathericons-regular-webfont.ttf') format('truetype'), url('/assets/font/weathericons-regular-webfont.svg#weather_iconsregular') format('svg');
   font-weight: normal;
   font-style: normal;
 }
