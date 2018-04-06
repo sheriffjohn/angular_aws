@@ -38,10 +38,12 @@ h1 {
   font-weight: normal;
   font-size: 48px;
   text-transform: uppercase;
+  color: $orange;
 }
 
 h2 {
   font-weight: normal;
+  color: black;
 }
 
 #page {
@@ -87,10 +89,53 @@ app-main-display {
   min-height: 200px;
   background-color: white;
   margin-top: 10px;
-  color: $orange;
-  .weather_icon {
-    font-size: 150px;
-    font-family: 'weathericons',
+  background-color: $orange;
+  .todays-weather {
+    display: grid;
+    grid-template-areas: "icon temp winddeg" "icon description windspeed";
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 3fr 1fr;
+    .weather_icon {
+      grid-area: icon;
+      font-size: 200px;
+      font-family: 'weathericons';
+      text-align: right;
+      background-color: $dark_blue;
+      color: white;
+      padding: 0 40px;
+    }
+    .description {
+      grid-area: description;
+      font-size: 50px;
+      padding: 0 50px 5px 50px;
+      text-align: center;
+      background-color: $red;
+    }
+    .temp {
+      grid-area: temp;
+      padding-left: 50px;
+      font-size: 75px;
+      color: black;
+      background-color: $yellow;
+      text-align: center;
+      .temp_value {
+        font-size: 150px;
+      }
+    }
+    .windspeed {
+      grid-area: windspeed;
+      padding: 0 50px 5px 50px;
+      font-size: 50px;
+      background-color: $dark_blue;
+    }
+    .winddeg {
+      grid-area: winddeg;
+      font-family: 'weathericons';
+      font-size: 200px;
+      margin-top: -36px;
+      max-height: 150px;
+      padding: 0 40px;
+    }
   }
 }
 

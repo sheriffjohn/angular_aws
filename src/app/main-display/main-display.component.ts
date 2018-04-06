@@ -16,9 +16,11 @@ export class MainDisplayComponent implements OnChanges {
   @Input() description: string;
 
   weatherIcon: string;
+  windIcon: string;
 
   ngOnChanges() {
     this.weatherIcon = IconMappings[this.cod];
+    this.windIcon = '\uf0b1';
   }
 
   constructor() {
