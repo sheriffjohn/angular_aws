@@ -6,7 +6,11 @@
   <aside class="left"></aside>
   <main>
     <app-search></app-search>
-    <app-main-display [cod]="200"></app-main-display>
+    <app-main-display [cod]="cod"></app-main-display>
+    <div *ngIf="weatherData">
+      <p>Stad: {{weatherData.name}}</p>
+      <p>Vädret: {{weatherData.weather[0].description}}</p>
+    </div>
     <app-weekday-display></app-weekday-display>
     <app-weekday-display></app-weekday-display>
     <app-weekday-display></app-weekday-display>

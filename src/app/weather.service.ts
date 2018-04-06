@@ -17,18 +17,13 @@ export class WeatherService {
 
   getWeatherDataByCity(city: string): Observable<any> {
     const url = `http://api.openweathermap.org/data/2.5/weather?q=${city},${this.countryCode}&appid=${this.apiKey}&units=metric`;
-    return this.http.get(url);
+    return this.http.get(url).catch(this.handleError);
   }
 
-  // private extractData(res: Response) {
-  //   let body = res.json();
-  //   return body || {};
-  // }
-
-  // private handleError(error: any) {
-  //   let errMsg = (error.message) ? error.message :
-  //     error.status ? `${error.status} - ${error.statusText}` : this.errorMsg;
-  //   console.error(error, errMsg);
-  //   return Observable.throw(errMsg);
-  // }
+  private handleError(error: any) {
+    let errMsg = (error.message) ? error.message :
+      error.status ? `${error.status} - ${error.statusText}` : this.errorMsg;
+    console.error(error, errMsg);
+    return Observable.throw(errMsg);
+  }
 }
