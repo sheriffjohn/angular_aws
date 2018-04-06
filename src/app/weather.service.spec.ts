@@ -1,10 +1,11 @@
-import { TestBed, inject } from '@angular/core/testing';
-
+import { TestBed, inject, async } from '@angular/core/testing';
+import { HttpClientModule } from '@angular/common/http';
 import { WeatherService } from './weather.service';
 
 describe('WeatherService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
+      imports: [HttpClientModule],
       providers: [WeatherService]
     });
   });
@@ -13,8 +14,10 @@ describe('WeatherService', () => {
     expect(service).toBeTruthy();
   }));
 
-  // it('service to be created', inject([WeatherService], (service: WeatherService) => {
-  //   expect(service.getWeatherDataByCity('gothenburg')).toBe(null)
-  // }));
+  it('to respond with data', inject([WeatherService], async((service: WeatherService) => {
+    service.getWeatherDataByCity('gothenburg').subscribe((data) => {
+      expect(data['coord']).toBeNull();
+    });
+  })));
 
 });
