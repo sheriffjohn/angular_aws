@@ -12,4 +12,9 @@ describe('WeatherService', () => {
   it('should be created', inject([WeatherService], (service: WeatherService) => {
     expect(service).toBeTruthy();
   }));
+
+  // it('service to be created', inject([WeatherService], (service: WeatherService) => {
+  //   expect(service.getWeatherDataByCity('gothenburg')).toBe(null)
+  // }));
+
 });

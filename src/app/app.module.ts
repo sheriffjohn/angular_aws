@@ -6,6 +6,7 @@ import { SearchComponent } from './search/search.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { MainDisplayComponent } from './main-display/main-display.component';
 import { WeekdayDisplayComponent } from './weekday-display/weekday-display.component';
+import { HttpClientModule } from '@angular/common/http';
 
 import { WeatherService } from './weather.service';
 
@@ -18,7 +19,7 @@ import { WeatherService } from './weather.service';
     WeekdayDisplayComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule, HttpClientModule
   ],
   providers: [WeatherService],
   bootstrap: [AppComponent]
