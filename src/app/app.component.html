@@ -6,7 +6,8 @@
   <aside class="left"></aside>
   <main>
     <app-search></app-search>
-    <app-main-display [description]="'clear sky'" [cod]="200" [temp]="5" [windspeed]="6" [winddeg]="260">
+    <app-main-display [description]="weatherData.weather[0].description" [cod]="weatherData.weather[0].id" [temp]="weatherData.main.temp"
+      [windspeed]="weatherData.wind.speed" [winddeg]="weatherData.wind.deg">
     </app-main-display>
     <app-weekday-display [description]="'clear sky'" [cod]="200" [maxtemp]="5" [mintemp]="0"></app-weekday-display>
     <app-weekday-display [description]="'clear sky'" [cod]="200" [maxtemp]="5" [mintemp]="0"></app-weekday-display>
