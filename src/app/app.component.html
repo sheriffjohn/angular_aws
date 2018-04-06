@@ -1,109 +1,17 @@
-<!--  Header -->
-
-<header id="header-area" class="grid">
-  <div class="bg-image"></div>
-  <h1>Sigma VäderApp</h1>
-  <p>Kolla hur vädret är hos Sigma</p>
-  <input type="text" class="search" placeholder="Search..">
-
-  <div class="dropdown-hover">
-    <div class="btn">Välj Ort</div>
-    <div class="dropdown-content">
-      <a href="#" class="bar-item">Link 1</a>
-      <a href="#" class="bar-item">Link 2</a>
-      <a href="#" class="bar-item">Link 3</a>
-    </div>
-  </div>
-</header>
-
-<!-- Main Area -->
-<main id="main">
-
-  <!-- Section A -->
-  <section id="section-a" class="grid">
-    <div class="content-wrap">
-      <h2 class="content-title"></h2>
-      <div class="content-text">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum dolor sunt nobis ea excepturi esse earum. Voluptates,
-          facilis doloremque corrupti laboriosam consectetur explicabo deserunt suscipit sit atque repudiandae at nostrum
-          temporibus necessitatibus assumenda ipsa cumque qui ex? Quos, atque quidem?</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section B -->
-  <section id="section-b" class="grid">
-    <ul>
-      <li>
-        <div class="card">
-          <img src="https://images.pexels.com/photos/33150/flash-thunderstorm-flash-of-lightning-black.jpg?auto=compress&cs=tinysrgb&h=650&w=940"
-            alt="">
-          <div class="card-content">
-            <h3 class="card-title">Väder</h3>
-            <P>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae libero inventore commodi error consequatur
-              deserunt eligendi! Consequuntur, dolorem? Quia, velit?</P>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="card">
-          <img src="https://images.pexels.com/photos/9466/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350" alt="">
-          <div class="card-content">
-            <h3 class="card-title">Väder</h3>
-            <P>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae libero inventore commodi error consequatur
-              deserunt eligendi! Consequuntur, dolorem? Quia, velit?</P>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="card">
-          <img src="https://images.pexels.com/photos/267151/pexels-photo-267151.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="">
-          <div class="card-content">
-            <h3 class="card-title">Väder</h3>
-            <P>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae libero inventore commodi error consequatur
-              deserunt eligendi! Consequuntur, dolorem? Quia, velit?</P>
-          </div>
-        </div>
-      </li>
-    </ul>
-  </section>
-
-  <!-- Section C -->
-  <section id="section-c" class="grid">
-    <div class="content-wrap">
-      <h2 class="content-title">Vädwr är bra</h2>
-    </div>
-  </section>
-
-  <!-- Section D -->
-  <section id="section-d" class="grid">
-    <div class="box">
-      <h2 class="content-title">Kontakta oss</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, quaerat cupiditate impedit nesciunt accusantium numquam
-        ex atque fugiat temporibus quas.</p>
-      <p>contact@mail.com</p>
-    </div>
-    <div class="box">
-      <h2 class="content-title">About Us</h2>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id hic earum sapiente iusto maxime et minima illo molestiae
-        qui rem ducimus officiis cumque ullam tempora modi ad doloremque, reprehenderit vel.</p>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="main-footer">
-    <div>Sigma ++</div>
-  </footer>
-
-</main>
-
-
-<!-- <app-search>
-  </app-search>
-  <app-dropdown>
-  </app-dropdown>
-  <app-main-display>
-  </app-main-display>
-
-  <app-weekday-display>
-  </app-weekday-display> -->
+<section id="page">
+  <header>
+    <h1>Väder by Sigma</h1>
+    <h2>Expect a sunnier tomorrow</h2>
+  </header>
+  <aside class="left"></aside>
+  <main>
+    <app-search></app-search>
+    <app-main-display [cod]="200"></app-main-display>
+    <app-weekday-display></app-weekday-display>
+    <app-weekday-display></app-weekday-display>
+    <app-weekday-display></app-weekday-display>
+    <app-weekday-display></app-weekday-display>
+  </main>
+  <aside class="right"></aside>
+  <footer>Developed by Felicia Ringblom and John Pettersson</footer>
+</section>

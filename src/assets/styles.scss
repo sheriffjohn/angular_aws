@@ -4,179 +4,98 @@ $orange: rgb(219, 105, 51);
 $yellow: rgb(248, 206, 70);
 $red: (202, 76, 76);
 $light_yellow: rgb(249, 216, 107);
-$ligh_blue: rgb(192, 216, 236);
+$light_blue: rgb(192, 216, 236);
 $turquoise: rgb(163, 209, 212);
 $light_turquoise: rgb(191, 223, 225);
 $light_gray: (242, 242, 242);
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #333;
-  color: #fff;
-  font-size: 1.1em;
-  line-height: 1.5;
-  text-align: center;
+@font-face {
+  font-family: 'weathericons'; //src: url('./assets/font/weathericons-regular-webfont.eot');
+  //src: url('./assets/font/weathericons-regular-webfont.eot?#iefix') format('embedded-opentype'), url('../font/weathericons-regular-webfont.woff2') format('woff2'), url('../font/weathericons-regular-webfont.woff') format('woff'), url('../font/weathericons-regular-webfont.ttf') format('truetype'), url('../font/weathericons-regular-webfont.svg#weather_iconsregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
 
-img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-h1,
-h2,
-h3 {
-  margin: 0;
-  padding: 1em 0;
-}
-
-p {
-  margin: 0;
-  padding: 1em;
-}
-
-/* header */
-
-#header-area {
-  background: #333;
-  h1 {
-    padding-top: 100%;
-    padding-bottom: 0;
-  }
-  .bg-image {
-    position: absolute;
-    background: #333 url('https://images.pexels.com/photos/268917/pexels-photo-268917.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 450px;
-    z-index: -1;
-    opacity: 0.4;
-  }
-  .content.wrap & {
-    padding: 0 1.5em;
-  }
-  .search {
-    display: inline-block;
-    width: 93%;
-    border-radius: 5px;
-    margin: 1em;
-    border: 1px solid #666;
-    background: linear-gradient(#eee, #fff);
-    transition: all 0.3s ease-out;
-    font-size: 18px;
-    padding: 1em 2em;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-  }
-  .btn {
-    display: block;
-    margin: 1em;
-    background: #333;
-    color: #fff;
-    text-decoration: none;
-    padding: 1em 2em;
-    border: 1px solid #666;
-    :hover {
-      background-color: #2690d4;
-    }
-  }
-}
-
-/* main */
-
-#main {
-  background: #333
-}
-
-/* section a */
-
-#section-a {
-  background: #eaeaea;
-  color: #333;
-  padding-bottom: 2em;
-  .content.wrap {
-    padding: 0 1.5em;
-  }
-}
-
-/* section b */
-
-#section-b {
-  padding: 2em 1em 1em;
-}
-
-#section-b ul {
-  list-style: none;
+* {
   margin: 0;
   padding: 0;
+  border: 0;
 }
 
-#section-b li {
-  margin-bottom: 1em;
-  background: #fff;
-  color: #333;
-}
-
-.card-content {
-  padding: 1.5em;
-}
-
-/* section c */
-
-#section-c {
-  background: #fff;
-  color: #333;
-  padding: 2em;
-}
-
-/* section-d .box */
-
-#section-d .box {
-  padding: 2em;
+body {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.1em;
+  line-height: 1.5;
+  background-color: $light_blue;
   color: #fff;
 }
 
-#section-d .box:first-child {
-  background: #2690d4;
+h1 {
+  font-weight: normal;
+  font-size: 48px;
+  text-transform: uppercase;
 }
 
-/* Footer */
+h2 {
+  font-weight: normal;
+}
 
-#main-footer {
-  padding: 2em;
-  background: #000;
-  color: #fff;
+#page {
+  padding: 20px 0;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-areas: "head head head" "aside-left main aside-right" "foot foot foot";
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-rows: 150px 1fr 100px;
+}
+
+header {
+  grid-area: head;
   text-align: center;
 }
 
-#main-footer a {
-  color: #2690d4;
-  text-decoration: none;
+main {
+  grid-area: main;
 }
 
-/* Media Queries */
+aside.left {
+  grid-area: aside-left;
+}
 
-@media(min-width: 700px) {
-  .grid {
-    display: grid;
-    grid-template-columns: 1fr repeat(2, minmax(auto, 25em)) 1fr;
+aside.right {
+  grid-area: aside-right;
+}
+
+footer {
+  grid-area: foot;
+  text-align: center;
+  font-weight: lighter;
+  background-color: white;
+  color: $orange;
+  padding-top: 10px;
+}
+
+app-main-display {
+  width: 100%;
+  display: block;
+  min-height: 200px;
+  background-color: white;
+  margin-top: 10px;
+  color: $orange;
+  .weather_icon {
+    font-size: 100px;
+    font-family: 'weathericons',
   }
-  .content.wrap,
-  #section-b ul {
-    grid-column: 2/4;
-  }
-  .box,
-  #main-footer div {
-    grid-column: span 2;
-  }
-  #section-a .content-text {
-    columns: 2;
-    column-gap: 2em;
-  }
-  #section-a .content-text p {
-    padding-top: 0;
-  }
+}
+
+app-weekday-display {
+  width: 100%;
+  display: block;
+  min-height: 80px;
+  background-color: white;
+  margin-top: 10px;
 }

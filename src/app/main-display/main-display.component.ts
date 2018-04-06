@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import IconMappings from '../utils/iconMappings';
 
 @Component({
   selector: 'app-main-display',
@@ -6,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainDisplayComponent implements OnInit {
 
+  @Input() cod: number;
+
+  weatherIcon: string;
+
+
   constructor() { }
 
   ngOnInit() {
+    this.weatherIcon = IconMappings[this.cod];
   }
 
 }

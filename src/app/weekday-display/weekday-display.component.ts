@@ -8,7 +8,9 @@ export class WeekdayDisplayComponent implements OnInit {
 
   constructor() { }
 
+
   ngOnInit() {
+
   }
 
 }
