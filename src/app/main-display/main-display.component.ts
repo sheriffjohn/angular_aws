@@ -8,6 +8,11 @@ import IconMappings from '../utils/iconMappings';
 export class MainDisplayComponent implements OnInit {
 
   @Input() cod: number;
+  @Input() temp: number;
+  @Input() windspeed: number;
+  @Input() winddeg: number;
+  @Input() description: string;
+
 
   weatherIcon: string;
 

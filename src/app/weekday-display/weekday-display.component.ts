@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import IconMappings from '../utils/iconMappings';
 
 @Component({
   selector: 'app-weekday-display',
@@ -6,11 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WeekdayDisplayComponent implements OnInit {
 
+  @Input() cod: number;
+  @Input() description: string;
+  @Input() maxtemp: number;
+  @Input() mintemp: number;
+
+  weatherIcon: string;
+
   constructor() { }
 
-
   ngOnInit() {
-
+    this.weatherIcon = IconMappings[this.cod];
   }
 
 }
