@@ -7,6 +7,7 @@ import IconMappings from '../utils/iconMappings';
 })
 export class WeekdayDisplayComponent implements OnInit {
 
+  @Input() day: string;
   @Input() cod: number;
   @Input() description: string;
   @Input() maxtemp: number;

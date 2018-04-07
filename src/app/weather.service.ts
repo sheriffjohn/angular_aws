@@ -20,10 +20,14 @@ export class WeatherService {
     return this.http.get(url).catch(this.handleError);
   }
 
+  getWeatherForecastDataByCity(city: string): Observable<any> {
+    const url = `http://api.openweathermap.org/data/2.5/forecast?q=${city},${this.countryCode}&appid=${this.apiKey}&units=metric`;
+    return this.http.get(url).catch(this.handleError);
+  }
+
   private handleError(error: any) {
     let errMsg = (error.message) ? error.message :
       error.status ? `${error.status} - ${error.statusText}` : this.errorMsg;
-    console.error(error, errMsg);
     return Observable.throw(errMsg);
   }
 }

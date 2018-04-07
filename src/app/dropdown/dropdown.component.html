@@ -1,3 +1,9 @@
-<p>
-  dropdown works!
-</p>
+<div class="app-dropdown">
+  <div class="dropdown">
+    <button class="dropbtn" *ngIf="!city">Välj stad</button>
+    <button class="dropbtn" *ngIf="city">{{city}}</button>
+    <div class="dropdown-content">
+      <a *ngFor="let city of cities" href="#" (click)="setCity(city)">{{city}}</a>
+    </div>
+  </div>
+</div>

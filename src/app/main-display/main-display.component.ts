@@ -10,6 +10,7 @@ import { Observable } from 'rxjs/Observable';
 export class MainDisplayComponent implements OnChanges {
 
   @Input() cod: number;
+  @Input() city: string;
   @Input() temp: number;
   @Input() windspeed: number;
   @Input() winddeg: number;
