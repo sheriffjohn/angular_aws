@@ -11,7 +11,8 @@
       [windspeed]="weatherData?.wind.speed" [winddeg]="weatherData?.wind.deg" [city]="city">
     </app-main-display>
     <app-weekday-display *ngFor="let forecast of weatherForecastData" [day]="getDay(forecast?.dt_txt)" [description]="'clear sky'"
-      [cod]="forecast?.weather[0].id" [maxtemp]="forecast.main.temp_max" [mintemp]="forecast.main.temp_min"></app-weekday-display>
+      [cod]="forecast?.weather[0].id" [maxtemp]="forecast.main.temp_max" [mintemp]="forecast.main.temp_min">
+    </app-weekday-display>
   </main>
   <aside class="right"></aside>
   <footer>

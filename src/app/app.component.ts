@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherService } from './weather.service';
+import { Weather } from './models/weather';
+import { Store } from '@ngrx/store';
+import { AppState } from './models/app-state';
+import * as weatherActions from './redux/actions/weather.actions';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-root',
@@ -8,55 +13,63 @@ import { WeatherService } from './weather.service';
 })
 export class AppComponent implements OnInit {
   city: string;
-
   cod: number;
-  weatherIcon: string;
-  weatherData: any;
+  weatherData: Weather;
   weatherForecastData: Array<any> = new Array<any>();
 
-  constructor(private service: WeatherService) {
+  constructor(private service: WeatherService, private store: Store<AppState>) {
+    this.subscriptions();
   }
 
   ngOnInit() {
     this.loadCity('göteborg');
   }
 
+  subscriptions() {
+    this.store.select(state => state.weather).subscribe((data: any) => {
+      if (data.base) {
+        this.weatherData = data;
+        this.cod = data.weather[0].id;
+        console.log('weatherDataStore', this.weatherData);
+      }
+    });
+  }
+
   getDay(datetime: string) {
     const weekday = new Array(7);
-    weekday[0] = "Sunday";
-    weekday[1] = "Monday";
-    weekday[2] = "Tuesday";
-    weekday[3] = "Wednesday";
-    weekday[4] = "Thursday";
-    weekday[5] = "Friday";
-    weekday[6] = "Saturday";
+    weekday[0] = 'Sunday';
+    weekday[1] = 'Monday';
+    weekday[2] = 'Tuesday';
+    weekday[3] = 'Wednesday';
+    weekday[4] = 'Thursday';
+    weekday[5] = 'Friday';
+    weekday[6] = 'Saturday';
 
     return weekday[new Date(datetime).getDay()];
   }
 
-  loadCity(city: any) {
-    this.city = city;
+  loadCity(event: any) {
+    this.city = event;
+    this.store.dispatch(new weatherActions.LoadWeatherByCityAction(event));
 
-    this.service.getWeatherDataByCity(city.toString()).subscribe((data) => {
-      this.weatherData = data;
-      this.cod = data.weather[0].id;
+    // this.service.getWeatherDataByCity(city.toString()).subscribe((data) => {
+    //   this.weatherData = data;
+    //   this.cod = data.weather[0].id;
+    //   console.log('weatherData', this.weatherData);
+    // });
 
-      console.log('weatherData', this.weatherData);
-    });
-
-    this.service.getWeatherForecastDataByCity(city.toString()).subscribe((data) => {
+    this.service.getWeatherForecastDataByCity(event.toString()).subscribe((data) => {
       this.weatherForecastData = this.removeDuplicates(data.list, 'dt_txt');
-
       console.log('weatherForecastData', this.weatherForecastData);
     });
   }
 
   private removeDuplicates(originalArray, objKey) {
-    var trimmedArray = [];
-    var values = [];
-    var value;
+    const trimmedArray = [];
+    const values = [];
+    let value;
 
-    for (var i = 0; i < originalArray.length; i++) {
+    for (let i = 0; i < originalArray.length; i++) {
       value = originalArray[i][objKey];
 
       if (values.indexOf(this.getDay(value)) === -1) {
