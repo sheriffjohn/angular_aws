@@ -1,7 +1,15 @@
-<div>
-  <p class="weather_icon">{{ weatherIcon }}</p>
-  <p class="description">{{ description }}</p>
-  <p class="description">{{ day }}</p>
-  <p class="maxtemp">max-temp: {{ maxtemp }} °C</p>
-  <p class="mintemp">min-temp: {{ mintemp }} °C</p>
+<div class="weather_icon">
+  <p>{{ weatherIcon }}</p>
+</div>
+<div class="description">
+  <p>{{ description }}</p>
+</div>
+<div class="day">
+  <p>{{ day }}</p>
+</div>
+<div class="maxtemp">
+  <p>Max {{ maxtemp | number:'1.0-0'}} °C</p>
+</div>
+<div class="mintemp">
+  <p>Min {{ mintemp | number:'1.0-0'}} °C</p>
 </div>

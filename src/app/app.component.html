@@ -2,11 +2,10 @@
   <header>
     <h1>Weather by Sigma</h1>
     <h2>Expect a sunnier tomorrow</h2>
+    <app-dropdown (selectedCity)="loadCity($event)"></app-dropdown>
   </header>
   <aside class="left"></aside>
   <main>
-    <app-search></app-search>
-    <app-dropdown (selectedCity)="loadCity($event)"></app-dropdown>
     <app-main-display [description]="weatherData?.weather[0].description" [cod]="weatherData?.weather[0].id" [temp]="weatherData?.main.temp"
       [windspeed]="weatherData?.wind.speed" [winddeg]="weatherData?.wind.deg" [city]="city">
     </app-main-display>

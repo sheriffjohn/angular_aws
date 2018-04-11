@@ -3,7 +3,7 @@
   <div class="city">{{ city }}</div>
   <div class="description">{{ description }}</div>
   <div class="temp">
-    <span class="temp_value">{{ temp }}</span> °C</div>
+    <span class="temp_value">{{ temp | number:'1.0-0'}}</span> °C</div>
   <div class="winddeg">{{ windIcon }}</div>
   <div class="windspeed">{{ windspeed }} m/s</div>
 </div>
