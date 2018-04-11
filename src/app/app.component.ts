@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherService } from './weather.service';
 import { Weather } from './models/weather';
-import { Store } from '@ngrx/store';
-import { AppState } from './models/app-state';
-import * as weatherActions from './redux/actions/weather.actions';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
@@ -17,7 +14,7 @@ export class AppComponent implements OnInit {
   weatherData: Weather;
   weatherForecastData: Array<any> = new Array<any>();
 
-  constructor(private service: WeatherService, private store: Store<AppState>) {
+  constructor(private service: WeatherService) {
     this.subscriptions();
   }
 

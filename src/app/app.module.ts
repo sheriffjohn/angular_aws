@@ -10,11 +10,9 @@ import { WeekdayDisplayComponent } from './weekday-display/weekday-display.compo
 import { HttpClientModule } from '@angular/common/http';
 
 import { WeatherService } from './weather.service';
-import { reducers } from './redux/reducers/reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
-import { WeatherEffects } from './redux/effects/weather.effects';
 import { environment } from '../environments/environment';
 
 @NgModule({
@@ -28,9 +26,6 @@ import { environment } from '../environments/environment';
   imports: [
     BrowserModule,
     HttpClientModule,
-    StoreModule.forRoot(reducers),
-    EffectsModule.forRoot([WeatherEffects]),
-    !environment.production ? StoreDevtoolsModule.instrument() : []
   ],
   providers: [WeatherService],
   bootstrap: [AppComponent]
