@@ -26,13 +26,6 @@ export class AppComponent implements OnInit {
   }
 
   subscriptions() {
-    this.store.select(state => state.weather).subscribe((data: any) => {
-      if (data.base) {
-        this.weatherData = data;
-        this.cod = data.weather[0].id;
-        console.log('weatherDataStore', this.weatherData);
-      }
-    });
   }
 
   getDay(datetime: string) {
@@ -50,13 +43,12 @@ export class AppComponent implements OnInit {
 
   loadCity(event: any) {
     this.city = event;
-    this.store.dispatch(new weatherActions.LoadWeatherByCityAction(event));
 
-    // this.service.getWeatherDataByCity(city.toString()).subscribe((data) => {
-    //   this.weatherData = data;
-    //   this.cod = data.weather[0].id;
-    //   console.log('weatherData', this.weatherData);
-    // });
+    this.service.getWeatherDataByCity(event.toString()).subscribe((data) => {
+      this.weatherData = data;
+      this.cod = data.weather[0].id;
+      console.log('weatherData', this.weatherData);
+    });
 
     this.service.getWeatherForecastDataByCity(event.toString()).subscribe((data) => {
       this.weatherForecastData = this.removeDuplicates(data.list, 'dt_txt');
