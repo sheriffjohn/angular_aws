@@ -67,7 +67,7 @@ export class AppComponent implements OnInit {
       }
     }
 
-    return trimmedArray;
+    return trimmedArray.splice(1);
 
   }
 }

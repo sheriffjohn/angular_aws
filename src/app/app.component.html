@@ -9,7 +9,7 @@
     <app-main-display [description]="weatherData?.weather[0].description" [cod]="weatherData?.weather[0].id" [temp]="weatherData?.main.temp"
       [windspeed]="weatherData?.wind.speed" [winddeg]="weatherData?.wind.deg" [city]="city">
     </app-main-display>
-    <app-weekday-display *ngFor="let forecast of weatherForecastData" [day]="getDay(forecast?.dt_txt)" [description]="'clear sky'"
+    <app-weekday-display *ngFor="let forecast of weatherForecastData" [day]="getDay(forecast?.dt_txt)" [description]="forecast?.weather[0].description"
       [cod]="forecast?.weather[0].id" [maxtemp]="forecast.main.temp_max" [mintemp]="forecast.main.temp_min">
     </app-weekday-display>
   </main>
